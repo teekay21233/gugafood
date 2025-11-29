@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface KitchenRepository extends JpaRepository<Kitchen,Long> {
-//    List<Kitchen> listByName(String name);
+public interface KitchenRepository extends CustomJpaRepository<Kitchen,Long> {
+    List<Kitchen> findByNameContaining(String name);
+
+    boolean existsByName(String name);
 }
